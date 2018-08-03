@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <style>
+    .center div {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    是否压缩代码:
+    <input type="checkbox" id="chkZip" />
+  </div>
+  <div>
+    是否hash文件名:
+    <input type="checkbox" id="chkHash" />
+  </div>
+  <div>
+    是否发布web包:
+    <input type="checkbox" id="chkWeb" />
+  </div>
+  <br>
+  <table>
+    <tr>
+      <td>
+        上次版本号：
+        <input type="text" value="" id="txtLastWebVer" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        当前版本号：
+        <input type="text" value="" id="txtWebVer" />
+      </td>
+    </tr>
+
+  </table>
+  <br>
+  <table>
+    <tr>
+      <td>打包源的路径：</td>
+      <td>
+        <input type="text" style="width: 385px" value="" id="packBinPath" />
+        <input type="button" value="浏览" id="selectBinPath">
+      </td>
+    </tr>
+    <tr>
+      <td>导出资源路径：</td>
+      <td>
+        <input type="text" style="width: 385px" value="" id="outResPath" />
+        <input type="button" value="浏览" id="selectResPath">
+      </td>
+    </tr>
+    <tr>
+      <td>小游戏的路径：</td>
+      <td>
+        <input type="text" style="width: 385px" value="" id="wxgamePath" />
+        <input type="button" value="浏览" id="selectWxPath">
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table>
+    <tr>
+      <td>新版本日志</td>
+    </tr>
+    <tr>
+      <td>
+        <textarea id="txtLog" cols="60" rows="15" warp="virtual"></textarea>
+      </td>
+    </tr>
+
+  </table>
+  <table>
+    <tr>
+      <td align="left">
+        <input type="button" id="btnPack" value="保存并打包" />
+        <!-- <input type="button" id="btnCancel" value="取消" /> -->
+      </td>
+    </tr>
+  </table>
+  <script>
+    require('./dist/renders/renderer.js')
+  </script>
+</body>
+
+</html>
