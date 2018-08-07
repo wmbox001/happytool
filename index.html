@@ -12,80 +12,112 @@
 </head>
 
 <body>
-  <div>
-    是否压缩代码:
-    <input type="checkbox" id="chkZip" />
-  </div>
-  <div>
-    是否hash文件名:
-    <input type="checkbox" id="chkHash" />
-  </div>
-  <div>
-    是否发布web包:
-    <input type="checkbox" id="chkWeb" />
-  </div>
-  <br>
-  <table>
-    <tr>
-      <td>
-        上次版本号：
-        <input type="text" value="" id="txtLastWebVer" />
-      </td>
-    </tr>
-    <tr>
-      <td>
-        当前版本号：
-        <input type="text" value="" id="txtWebVer" />
-      </td>
-    </tr>
 
-  </table>
-  <br>
   <table>
     <tr>
       <td>打包源的路径：</td>
       <td>
         <input type="text" style="width: 385px" value="" id="packBinPath" />
-        <input type="button" value="浏览" id="selectBinPath">
+        <input type="button" value="选择" id="selectBinPath">
       </td>
     </tr>
     <tr>
       <td>导出资源路径：</td>
       <td>
         <input type="text" style="width: 385px" value="" id="outResPath" />
-        <input type="button" value="浏览" id="selectResPath">
+        <input type="button" value="选择" id="selectResPath">
       </td>
     </tr>
     <tr>
-      <td>小游戏的路径：</td>
+      <td>代码发布路径：</td>
       <td>
-        <input type="text" style="width: 385px" value="" id="wxgamePath" />
-        <input type="button" value="浏览" id="selectWxPath">
+        <input type="text" style="width: 385px" value="" id="outCodePath" />
+        <input type="button" value="选择" id="selectWxPath">
       </td>
     </tr>
   </table>
   <br>
   <table>
     <tr>
-      <td>新版本日志</td>
+      <td style="width: 160px">
+        发布微信小游戏:
+        <input type="checkbox" id="chkWx" checked />
+      </td>
+      <td>
+        发布web端游戏:
+        <input type="checkbox" id="chkWeb" />
+      </td>
+    </tr>
+    <tr style="display: none">
+      <td style="width: 160px">
+        是否压缩代码:
+        <input type="checkbox" id="chkZip" />
+      </td>
+      <td>
+        是否hash文件名:
+        <input type="checkbox" id="chkHash" />
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table id="cfgTable">
+    <tr>
+      <td>微信小游戏config.js文件配置</td>
+      <td>微信小游戏game.js文件配置</td>
     </tr>
     <tr>
       <td>
-        <textarea id="txtLog" cols="60" rows="15" warp="virtual"></textarea>
+        <textarea id="configjs" cols="40" rows="10" warp="virtual"></textarea>
+      </td>
+      <td>
+        <textarea id="gamejs" cols="26" rows="10" warp="virtual"></textarea>
       </td>
     </tr>
-
+  </table>
+  <br>
+  <table>
+    <tr>
+      <td style="width: 250px">
+        当前版本号：
+        <input style="width: 100px" type="text" value="" id="txtWebVer" />
+      </td>
+      <td style="width: 250px">
+        上次版本号：
+        <span id="txtLastWebVer"></span>
+      </td>
+    </tr>
   </table>
   <table>
     <tr>
       <td align="left">
-        <input type="button" id="btnPack" value="保存并打包" />
-        <!-- <input type="button" id="btnCancel" value="取消" /> -->
+        <input type="button" id="btnPack" value="保存配置并打包" />
+      </td>
+      <td>
+        <p style="color: #cc3535">(注: 微信小游戏和web游戏发布, 至少选一个!)</p>
       </td>
     </tr>
   </table>
+  <table>
+    <tr>
+      <td>打包日志</td>
+    </tr>
+    <tr>
+      <td>
+        <textarea id="txtLog" cols="70" rows="20" warp="virtual"></textarea>
+      </td>
+    </tr>
+  </table>
+
   <script>
-    require('./dist/renders/renderer.js')
+    require('./dist/renders/renderer.js');
+    var chkwx = document.getElementById('chkWx');
+    chkwx.addEventListener('change', (e) => {
+      if (chkwx.checked) {
+        document.getElementById('cfgTable').style.display = "block"
+      } else {
+        document.getElementById('cfgTable').style.display = "none"
+      }
+    })
   </script>
 </body>
 

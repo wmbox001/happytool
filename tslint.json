@@ -20,7 +20,11 @@
     "prefer-const": false,
     "no-string-literal": false,
     "no-angle-bracket-type-assertion": false,
-    "no-var-keyword": false
+    "no-var-keyword": false,
+    "no-namespace": [
+      true,
+      "allow-declarations"
+    ]
   },
   "jsRules": {
     "max-line-length": {

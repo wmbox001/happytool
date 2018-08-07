@@ -20,8 +20,14 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
+    "@types/rimraf": "^2.0.2",
     "electron": "^2.0.2",
+    "rimraf": "^2.6.2",
     "tslint": "^5.10.0",
     "typescript": "^2.8.3"
+  },
+  "dependencies": {
+    "@types/uglify-js": "^2.6.31",
+    "uglify-js": "^2.8.21"
   }
 }
